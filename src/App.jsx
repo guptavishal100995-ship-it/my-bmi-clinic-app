@@ -28,7 +28,8 @@ function Gauge({ bmi }) {
         marginTop: 6,
         display: "flex",
         justifyContent: "space-between",
-        color: "#555"
+        color: "#222",
+        fontWeight: 600
       }}>
         <span>Under</span>
         <span>Normal</span>
@@ -147,8 +148,11 @@ export default function App() {
   const input = {
     padding: 10,
     borderRadius: 10,
-    border: "1px solid #ddd",
-    width: "100%"
+    border: "2px solid #333",
+    width: "100%",
+    color: "#000",
+    backgroundColor: "#fff",
+    fontWeight: 600
   };
 
   return (
@@ -160,11 +164,12 @@ export default function App() {
       alignItems: "center"
     }}>
       <div style={{
-        background: "white",
+        background: "#ffffff",
         padding: 24,
         borderRadius: 18,
         width: 420,
-        boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
+        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+        color: "#000"
       }}>
 
         <div style={{
@@ -174,11 +179,7 @@ export default function App() {
           background: "linear-gradient(90deg,#6d28d9,#9333ea)",
           color: "white"
         }}>
-          <div style={{
-            fontSize: 26,
-            fontWeight: "bold",
-            letterSpacing: 1.5
-          }}>
+          <div style={{ fontSize: 26, fontWeight: "bold", letterSpacing: 1.5 }}>
             "MY" BMI
           </div>
           <div style={{ fontSize: 13, marginTop: 4 }}>
@@ -253,14 +254,20 @@ export default function App() {
 
             <Gauge bmi={bmi} />
 
+            {/* ✅ HIGH CONTRAST ADVICE BOX */}
             <div style={{
               marginTop: 12,
-              background: "#f3f4f6",
-              padding: 12,
-              borderRadius: 12
+              background: "#ffffff",
+              padding: 14,
+              borderRadius: 12,
+              border: "2px solid #111",
+              color: "#000",
+              fontWeight: 600
             }}>
-              <b>Advice</b>
-              <ul>{tips.map((t,i)=><li key={i}>{t}</li>)}</ul>
+              <b style={{ fontSize: 16 }}>Advice</b>
+              <ul style={{ marginTop: 8 }}>
+                {tips.map((t,i)=><li key={i} style={{ marginBottom: 6 }}>{t}</li>)}
+              </ul>
             </div>
 
             <button onClick={downloadPDF}
