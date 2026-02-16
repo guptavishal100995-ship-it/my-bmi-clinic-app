@@ -13,7 +13,8 @@ function Gauge({ bmi }) {
           left: `calc(${percent}% - 6px)`,
           top: -12,
           fontSize: 18,
-          fontWeight: "bold"
+          fontWeight: "bold",
+          color: "#000"
         }}>▼</div>
 
         <div style={{
@@ -24,12 +25,12 @@ function Gauge({ bmi }) {
       </div>
 
       <div style={{
-        fontSize: 11,
+        fontSize: 12,
         marginTop: 6,
         display: "flex",
         justifyContent: "space-between",
-        color: "#222",
-        fontWeight: 600
+        color: "#000",
+        fontWeight: 700
       }}>
         <span>Under</span>
         <span>Normal</span>
@@ -148,7 +149,7 @@ export default function App() {
   const input = {
     padding: 10,
     borderRadius: 10,
-    border: "2px solid #333",
+    border: "2px solid #222",
     width: "100%",
     color: "#000",
     backgroundColor: "#fff",
@@ -179,10 +180,10 @@ export default function App() {
           background: "linear-gradient(90deg,#6d28d9,#9333ea)",
           color: "white"
         }}>
-          <div style={{ fontSize: 26, fontWeight: "bold", letterSpacing: 1.5 }}>
+          <div style={{ fontSize: 26, fontWeight: "bold" }}>
             "MY" BMI
           </div>
-          <div style={{ fontSize: 13, marginTop: 4 }}>
+          <div style={{ fontSize: 13 }}>
             Dr. Vishal Gupta (MBBS, DNB)
           </div>
         </div>
@@ -254,19 +255,20 @@ export default function App() {
 
             <Gauge bmi={bmi} />
 
-            {/* ✅ HIGH CONTRAST ADVICE BOX */}
+            {/* DARK MODE SAFE ADVICE BOX */}
             <div style={{
               marginTop: 12,
               background: "#ffffff",
               padding: 14,
               borderRadius: 12,
-              border: "2px solid #111",
+              border: "2px solid #000",
               color: "#000",
-              fontWeight: 600
+              fontWeight: 700,
+              lineHeight: 1.5
             }}>
-              <b style={{ fontSize: 16 }}>Advice</b>
-              <ul style={{ marginTop: 8 }}>
-                {tips.map((t,i)=><li key={i} style={{ marginBottom: 6 }}>{t}</li>)}
+              <div style={{ fontSize: 16, marginBottom: 6 }}>Advice</div>
+              <ul>
+                {tips.map((t,i)=><li key={i}>{t}</li>)}
               </ul>
             </div>
 
